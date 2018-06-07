@@ -1,6 +1,6 @@
 ﻿namespace WFA
 {
-    partial class Form1
+    partial class CadastroAluno
     {
         /// <summary>
         /// Required designer variable.
@@ -41,6 +41,7 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.NotaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -64,6 +65,7 @@
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(274, 20);
             this.txtMatricula.TabIndex = 1;
+            this.txtMatricula.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMatricula_KeyDown);
             // 
             // txtNome
             // 
@@ -71,6 +73,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(274, 20);
             this.txtNome.TabIndex = 3;
+            this.txtNome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNome_KeyDown);
             // 
             // label2
             // 
@@ -88,6 +91,7 @@
             this.txtIdade.Name = "txtIdade";
             this.txtIdade.Size = new System.Drawing.Size(274, 20);
             this.txtIdade.TabIndex = 5;
+            this.txtIdade.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdade_KeyDown);
             // 
             // label3
             // 
@@ -105,6 +109,7 @@
             this.txtTurno.Name = "txtTurno";
             this.txtTurno.Size = new System.Drawing.Size(274, 20);
             this.txtTurno.TabIndex = 7;
+            this.txtTurno.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTurno_KeyDown);
             // 
             // label4
             // 
@@ -122,6 +127,7 @@
             this.txtTurma.Name = "txtTurma";
             this.txtTurma.Size = new System.Drawing.Size(274, 20);
             this.txtTurma.TabIndex = 9;
+            this.txtTurma.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTurma_KeyDown);
             // 
             // label5
             // 
@@ -161,11 +167,19 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NotaColumn});
             this.dataGridView1.Location = new System.Drawing.Point(12, 175);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(578, 259);
             this.dataGridView1.TabIndex = 11;
+            // 
+            // NotaColumn
+            // 
+            this.NotaColumn.HeaderText = "Nota";
+            this.NotaColumn.Name = "NotaColumn";
+            this.NotaColumn.ReadOnly = true;
             // 
             // label7
             // 
@@ -180,6 +194,7 @@
             // btnAdicionar
             // 
             this.btnAdicionar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnAdicionar.Enabled = false;
             this.btnAdicionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionar.Location = new System.Drawing.Point(330, 144);
             this.btnAdicionar.Name = "btnAdicionar";
@@ -187,10 +202,12 @@
             this.btnAdicionar.TabIndex = 13;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = false;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // btnEditar
             // 
             this.btnEditar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnEditar.Enabled = false;
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.Location = new System.Drawing.Point(436, 144);
             this.btnEditar.Name = "btnEditar";
@@ -202,6 +219,7 @@
             // btnApagar
             // 
             this.btnApagar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnApagar.Enabled = false;
             this.btnApagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnApagar.Location = new System.Drawing.Point(509, 144);
             this.btnApagar.Name = "btnApagar";
@@ -210,7 +228,7 @@
             this.btnApagar.Text = "Apagar";
             this.btnApagar.UseVisualStyleBackColor = false;
             // 
-            // Form1
+            // CadastroAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -233,8 +251,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtMatricula);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.KeyPreview = true;
+            this.Name = "CadastroAluno";
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CadastroAluno_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -260,6 +280,7 @@
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnApagar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NotaColumn;
 
     }
 }

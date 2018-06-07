@@ -8,12 +8,20 @@ namespace Model
 {
     public class Aluno
     {
+        private static int UltimoCodigo;
+        private int Codigo;
         private string Nome;
         private int Idade;
         private string Turno;
         private string Turma;
         private int Matricula;
         private List<double> Notas = new List<double>();
+
+        public Aluno()
+        {
+            Codigo = ++UltimoCodigo;
+        }
+
 
         public void SetNome(string nome)
         {
@@ -55,14 +63,14 @@ namespace Model
 
         public void SetTurno(string turno)
         {
-            if (turno.Trim().Count() < 10)
+            if (turno.Trim().Count() < 7)
             {
                 throw new Exception("Turma deve conter no mínimo 7 caracteres");
             }
 
-            if (turno.Trim().ToLower() != "Matutino" ||
-                turno.Trim().ToLower() != "Vespertino" ||
-                turno.Trim().ToLower() != "Noturno")
+            if (turno.Trim().ToLower() != "matutino" &&
+                turno.Trim().ToLower() != "vespertino" &&
+                turno.Trim().ToLower() != "noturno")
             {
                 throw new Exception("Turno deve conter somente Matutino, Vespertino ou Noturno");
             }
@@ -103,6 +111,30 @@ namespace Model
             Matricula = matricula;
         }
 
+        public int GetMatricula()
+        {
+            return Matricula;
+        }
 
+        public void AdicionarNota(double nota)
+        {
+            Notas.Add(nota);
+        }
+
+
+        public List<double> GetNotas()
+        {
+            return Notas;
+        }
+
+        public void SetCodigo()
+        {
+
+        }
+
+        public int GetCodigo()
+        {
+            return UltimoCodigo;
+        }
     }
 }
